@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1228 744" width="1228" height="744" role="img" aria-label="忙しさ目安" class="viz">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1228 728" width="1228" height="728" role="img" aria-label="忙しさ目安" class="viz">
 <style>
     .viz { color-scheme: light dark; }
     .surface { fill: #fcfcfb; }
     .text-1 { fill: #0b0b0b; }
     .text-2 { fill: #52514e; }
     .text-3 { fill: #7a7974; }
-    .tasks { fill: #2a78d6; }
+    .tasks { fill: #eda100; }
     .flex { fill: #1baf7a; }
-    .meetings { fill: #eb6834; }
-    .free { fill: #ebeae6; }
+    .meetings { fill: #8a8984; }
+    .free { fill: #2a78d6; }
     .cell { fill: none; stroke: #e3e2dd; }
     .cell-today { fill: none; stroke: #52514e; }
     .gap { stroke: #fcfcfb; }
@@ -21,10 +21,10 @@
       .text-1 { fill: #f0efec; }
       .text-2 { fill: #c3c2b7; }
       .text-3 { fill: #8f8e87; }
-      .tasks { fill: #3987e5; }
+      .tasks { fill: #c98500; }
       .flex { fill: #199e70; }
-      .meetings { fill: #d95926; }
-      .free { fill: #2b2b29; }
+      .meetings { fill: #76756f; }
+      .free { fill: #3987e5; }
       .cell { stroke: #333331; }
       .cell-today { stroke: #c3c2b7; }
       .gap { stroke: #1a1a19; }
@@ -32,15 +32,15 @@
       .overflow { fill: #e66767; }
     }
 </style>
-<rect class="surface" x="0" y="0" width="1228" height="744" rx="12" />
+<rect class="surface" x="0" y="0" width="1228" height="728" rx="12" />
 <text class="text-1" x="24" y="38" font-size="20" font-weight="700">忙しさ目安</text>
-<text class="text-2" x="24" y="62" font-size="13">11/9 〜 12/8（30 日間）・ 稼働 10:00-22:00（休憩 1h を除き 11h/日）・ 更新 2026-11-09 20:53</text>
-<rect class="tasks" x="658" y="28" width="12" height="12" rx="3" />
-<text class="text-2" x="674" y="38" font-size="12">急ぎのタスク（締切あり）</text>
-<rect class="flex" x="850" y="28" width="12" height="12" rx="3" />
-<text class="text-2" x="866" y="38" font-size="12">予定のタスク（締切なし）</text>
-<rect class="meetings" x="1042" y="28" width="12" height="12" rx="3" />
-<text class="text-2" x="1058" y="38" font-size="12">ミーティング</text>
+<text class="text-2" x="24" y="62" font-size="13">11/9 〜 12/8（30 日間）・ 想定稼働時間: 10:00-22:00 ・ 更新 2026-11-09 21:01</text>
+<rect class="tasks" x="645" y="28" width="12" height="12" rx="3" />
+<text class="text-2" x="661" y="38" font-size="12">急ぎのタスク（締切あり）</text>
+<rect class="flex" x="837" y="28" width="12" height="12" rx="3" />
+<text class="text-2" x="853" y="38" font-size="12">予定のタスク（締切なし）</text>
+<rect class="meetings" x="1029" y="28" width="12" height="12" rx="3" />
+<text class="text-2" x="1045" y="38" font-size="12">ミーティング等</text>
 <rect class="free" x="1156" y="28" width="12" height="12" rx="3" />
 <text class="text-2" x="1172" y="38" font-size="12">空き</text>
 <text class="text-3" x="104.0" y="106" text-anchor="middle" font-size="12">月</text>
@@ -50,7 +50,7 @@
 <text class="text-3" x="784.0" y="106" text-anchor="middle" font-size="12">金</text>
 <text class="text-3" x="954.0" y="106" text-anchor="middle" font-size="12">土</text>
 <text class="text-3" x="1124.0" y="106" text-anchor="middle" font-size="12">日</text>
-<g><title>11/9(月) 空き 0% / 急ぎ 10h / 予定 0h / MTG 1h</title>
+<g><title>11/9(月) 空き 0% / 急ぎ 10h / 予定 0h / MTG等 1h</title>
 <rect class="cell-today" stroke-width="2" x="24.5" y="114.5" width="159" height="109" rx="8" />
 <text class="text-1" x="34" y="136" font-size="13" font-weight="700">11/9 (月)</text>
 <text class="text-1" x="174" y="136" text-anchor="end" font-size="13" font-weight="700">空き 0%</text>
@@ -62,9 +62,9 @@
 <rect class="tasks" x="46.7" y="148" width="127.3" height="14" />
 </g>
 <text class="text-2" x="34" y="186" font-size="12">急ぎ 10h ・ 予定 0h</text>
-<text class="text-2" x="34" y="206" font-size="12">MTG 1h</text>
+<text class="text-2" x="34" y="206" font-size="12">MTG等 1h</text>
 </g>
-<g><title>11/10(火) 空き 0% / 急ぎ 5.5h / 予定 0h / MTG 5.5h</title>
+<g><title>11/10(火) 空き 0% / 急ぎ 5.5h / 予定 0h / MTG等 5.5h</title>
 <rect class="cell" stroke-width="1" x="194.5" y="114.5" width="159" height="109" rx="8" />
 <text class="text-1" x="204" y="136" font-size="13">11/10 (火)</text>
 <text class="text-1" x="344" y="136" text-anchor="end" font-size="13" font-weight="700">空き 0%</text>
@@ -76,9 +76,9 @@
 <rect class="tasks" x="274.0" y="148" width="70.0" height="14" />
 </g>
 <text class="text-2" x="204" y="186" font-size="12">急ぎ 5.5h ・ 予定 0h</text>
-<text class="text-2" x="204" y="206" font-size="12">MTG 5.5h</text>
+<text class="text-2" x="204" y="206" font-size="12">MTG等 5.5h</text>
 </g>
-<g><title>11/11(水) 空き 0% / 急ぎ 4h / 予定 0h / MTG 7h</title>
+<g><title>11/11(水) 空き 0% / 急ぎ 4h / 予定 0h / MTG等 7h</title>
 <rect class="cell" stroke-width="1" x="364.5" y="114.5" width="159" height="109" rx="8" />
 <text class="text-1" x="374" y="136" font-size="13">11/11 (水)</text>
 <text class="text-1" x="514" y="136" text-anchor="end" font-size="13" font-weight="700">空き 0%</text>
@@ -90,9 +90,9 @@
 <rect class="tasks" x="463.1" y="148" width="50.9" height="14" />
 </g>
 <text class="text-2" x="374" y="186" font-size="12">急ぎ 4h ・ 予定 0h</text>
-<text class="text-2" x="374" y="206" font-size="12">MTG 7h</text>
+<text class="text-2" x="374" y="206" font-size="12">MTG等 7h</text>
 </g>
-<g><title>11/12(木) 空き 0% / 急ぎ 0h / 予定 0h / MTG 11h</title>
+<g><title>11/12(木) 空き 0% / 急ぎ 0h / 予定 0h / MTG等 11h</title>
 <rect class="cell" stroke-width="1" x="534.5" y="114.5" width="159" height="109" rx="8" />
 <text class="text-1" x="544" y="136" font-size="13">11/12 (木)</text>
 <text class="text-1" x="684" y="136" text-anchor="end" font-size="13" font-weight="700">空き 0%</text>
@@ -102,9 +102,9 @@
 <rect class="meetings" x="544.0" y="148" width="140.0" height="14" />
 </g>
 <text class="text-2" x="544" y="186" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="544" y="206" font-size="12">MTG 11h</text>
+<text class="text-2" x="544" y="206" font-size="12">MTG等 11h</text>
 </g>
-<g><title>11/13(金) 空き 0% / 急ぎ 0h / 予定 0h / MTG 11h</title>
+<g><title>11/13(金) 空き 0% / 急ぎ 0h / 予定 0h / MTG等 11h</title>
 <rect class="cell" stroke-width="1" x="704.5" y="114.5" width="159" height="109" rx="8" />
 <text class="text-1" x="714" y="136" font-size="13">11/13 (金)</text>
 <text class="text-1" x="854" y="136" text-anchor="end" font-size="13" font-weight="700">空き 0%</text>
@@ -114,9 +114,9 @@
 <rect class="meetings" x="714.0" y="148" width="140.0" height="14" />
 </g>
 <text class="text-2" x="714" y="186" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="714" y="206" font-size="12">MTG 11h</text>
+<text class="text-2" x="714" y="206" font-size="12">MTG等 11h</text>
 </g>
-<g><title>11/14(土) 空き 0% / 急ぎ 0h / 予定 0h / MTG 11h</title>
+<g><title>11/14(土) 空き 0% / 急ぎ 0h / 予定 0h / MTG等 11h</title>
 <rect class="cell" stroke-width="1" x="874.5" y="114.5" width="159" height="109" rx="8" />
 <text class="text-1" x="884" y="136" font-size="13">11/14 (土)</text>
 <text class="text-1" x="1024" y="136" text-anchor="end" font-size="13" font-weight="700">空き 0%</text>
@@ -126,9 +126,9 @@
 <rect class="meetings" x="884.0" y="148" width="140.0" height="14" />
 </g>
 <text class="text-2" x="884" y="186" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="884" y="206" font-size="12">MTG 11h</text>
+<text class="text-2" x="884" y="206" font-size="12">MTG等 11h</text>
 </g>
-<g><title>11/15(日) 空き 0% / 急ぎ 0h / 予定 0h / MTG 11h</title>
+<g><title>11/15(日) 空き 0% / 急ぎ 0h / 予定 0h / MTG等 11h</title>
 <rect class="cell" stroke-width="1" x="1044.5" y="114.5" width="159" height="109" rx="8" />
 <text class="text-1" x="1054" y="136" font-size="13">11/15 (日)</text>
 <text class="text-1" x="1194" y="136" text-anchor="end" font-size="13" font-weight="700">空き 0%</text>
@@ -138,9 +138,9 @@
 <rect class="meetings" x="1054.0" y="148" width="140.0" height="14" />
 </g>
 <text class="text-2" x="1054" y="186" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="1054" y="206" font-size="12">MTG 11h</text>
+<text class="text-2" x="1054" y="206" font-size="12">MTG等 11h</text>
 </g>
-<g><title>11/16(月) 空き 10% / 急ぎ 3.5h / 予定 5.5h / MTG 1h</title>
+<g><title>11/16(月) 空き 10% / 急ぎ 3.5h / 予定 5.5h / MTG等 1h</title>
 <rect class="cell" stroke-width="1" x="24.5" y="234.5" width="159" height="109" rx="8" />
 <text class="text-1" x="34" y="256" font-size="13">11/16 (月)</text>
 <text class="text-1" x="174" y="256" text-anchor="end" font-size="13" font-weight="700">空き 10%</text>
@@ -155,9 +155,9 @@
 <line class="gap" stroke-width="2" x1="160.0" y1="268" x2="160.0" y2="282" />
 </g>
 <text class="text-2" x="34" y="306" font-size="12">急ぎ 3.5h ・ 予定 5.5h</text>
-<text class="text-2" x="34" y="326" font-size="12">MTG 1h</text>
+<text class="text-2" x="34" y="326" font-size="12">MTG等 1h</text>
 </g>
-<g><title>11/17(火) 空き 11% / 急ぎ 2h / 予定 2.5h / MTG 5h</title>
+<g><title>11/17(火) 空き 11% / 急ぎ 2h / 予定 2.5h / MTG等 5h</title>
 <rect class="cell" stroke-width="1" x="194.5" y="234.5" width="159" height="109" rx="8" />
 <text class="text-1" x="204" y="256" font-size="13">11/17 (火)</text>
 <text class="text-1" x="344" y="256" text-anchor="end" font-size="13" font-weight="700">空き 11%</text>
@@ -172,9 +172,9 @@
 <line class="gap" stroke-width="2" x1="328.0" y1="268" x2="328.0" y2="282" />
 </g>
 <text class="text-2" x="204" y="306" font-size="12">急ぎ 2h ・ 予定 2.5h</text>
-<text class="text-2" x="204" y="326" font-size="12">MTG 5h</text>
+<text class="text-2" x="204" y="326" font-size="12">MTG等 5h</text>
 </g>
-<g><title>11/18(水) 空き 13% / 急ぎ 2h / 予定 3.5h / MTG 4h</title>
+<g><title>11/18(水) 空き 13% / 急ぎ 2h / 予定 3.5h / MTG等 4h</title>
 <rect class="cell" stroke-width="1" x="364.5" y="234.5" width="159" height="109" rx="8" />
 <text class="text-1" x="374" y="256" font-size="13">11/18 (水)</text>
 <text class="text-1" x="514" y="256" text-anchor="end" font-size="13" font-weight="700">空き 13%</text>
@@ -189,9 +189,9 @@
 <line class="gap" stroke-width="2" x1="496.0" y1="268" x2="496.0" y2="282" />
 </g>
 <text class="text-2" x="374" y="306" font-size="12">急ぎ 2h ・ 予定 3.5h</text>
-<text class="text-2" x="374" y="326" font-size="12">MTG 4h</text>
+<text class="text-2" x="374" y="326" font-size="12">MTG等 4h</text>
 </g>
-<g><title>11/19(木) 空き 14% / 急ぎ 0h / 予定 9.5h / MTG 0h</title>
+<g><title>11/19(木) 空き 14% / 急ぎ 0h / 予定 9.5h / MTG等 0h</title>
 <rect class="cell" stroke-width="1" x="534.5" y="234.5" width="159" height="109" rx="8" />
 <text class="text-1" x="544" y="256" font-size="13">11/19 (木)</text>
 <text class="text-1" x="684" y="256" text-anchor="end" font-size="13" font-weight="700">空き 14%</text>
@@ -202,9 +202,9 @@
 <line class="gap" stroke-width="2" x1="664.0" y1="268" x2="664.0" y2="282" />
 </g>
 <text class="text-2" x="544" y="306" font-size="12">急ぎ 0h ・ 予定 9.5h</text>
-<text class="text-2" x="544" y="326" font-size="12">MTG 0h</text>
+<text class="text-2" x="544" y="326" font-size="12">MTG等 0h</text>
 </g>
-<g><title>11/20(金) 空き 16% / 急ぎ 0h / 予定 4h / MTG 5.5h</title>
+<g><title>11/20(金) 空き 16% / 急ぎ 0h / 予定 4h / MTG等 5.5h</title>
 <rect class="cell" stroke-width="1" x="704.5" y="234.5" width="159" height="109" rx="8" />
 <text class="text-1" x="714" y="256" font-size="13">11/20 (金)</text>
 <text class="text-1" x="854" y="256" text-anchor="end" font-size="13" font-weight="700">空き 16%</text>
@@ -217,9 +217,9 @@
 <line class="gap" stroke-width="2" x1="832.0" y1="268" x2="832.0" y2="282" />
 </g>
 <text class="text-2" x="714" y="306" font-size="12">急ぎ 0h ・ 予定 4h</text>
-<text class="text-2" x="714" y="326" font-size="12">MTG 5.5h</text>
+<text class="text-2" x="714" y="326" font-size="12">MTG等 5.5h</text>
 </g>
-<g><title>11/21(土) 空き 17% / 急ぎ 0h / 予定 9h / MTG 0h</title>
+<g><title>11/21(土) 空き 17% / 急ぎ 0h / 予定 9h / MTG等 0h</title>
 <rect class="cell" stroke-width="1" x="874.5" y="234.5" width="159" height="109" rx="8" />
 <text class="text-1" x="884" y="256" font-size="13">11/21 (土)</text>
 <text class="text-1" x="1024" y="256" text-anchor="end" font-size="13" font-weight="700">空き 17%</text>
@@ -230,9 +230,9 @@
 <line class="gap" stroke-width="2" x1="1000.0" y1="268" x2="1000.0" y2="282" />
 </g>
 <text class="text-2" x="884" y="306" font-size="12">急ぎ 0h ・ 予定 9h</text>
-<text class="text-2" x="884" y="326" font-size="12">MTG 0h</text>
+<text class="text-2" x="884" y="326" font-size="12">MTG等 0h</text>
 </g>
-<g><title>11/22(日) 空き 19% / 急ぎ 0h / 予定 8h / MTG 1h</title>
+<g><title>11/22(日) 空き 19% / 急ぎ 0h / 予定 8h / MTG等 1h</title>
 <rect class="cell" stroke-width="1" x="1044.5" y="234.5" width="159" height="109" rx="8" />
 <text class="text-1" x="1054" y="256" font-size="13">11/22 (日)</text>
 <text class="text-1" x="1194" y="256" text-anchor="end" font-size="13" font-weight="700">空き 19%</text>
@@ -245,9 +245,9 @@
 <line class="gap" stroke-width="2" x1="1168.0" y1="268" x2="1168.0" y2="282" />
 </g>
 <text class="text-2" x="1054" y="306" font-size="12">急ぎ 0h ・ 予定 8h</text>
-<text class="text-2" x="1054" y="326" font-size="12">MTG 1h</text>
+<text class="text-2" x="1054" y="326" font-size="12">MTG等 1h</text>
 </g>
-<g><title>11/23(月) 空き 20% / 急ぎ 0h / 予定 8h / MTG 1h</title>
+<g><title>11/23(月) 空き 20% / 急ぎ 0h / 予定 8h / MTG等 1h</title>
 <rect class="cell" stroke-width="1" x="24.5" y="354.5" width="159" height="109" rx="8" />
 <text class="text-1" x="34" y="376" font-size="13">11/23 (月)</text>
 <text class="text-1" x="174" y="376" text-anchor="end" font-size="13" font-weight="700">空き 20%</text>
@@ -260,9 +260,9 @@
 <line class="gap" stroke-width="2" x1="146.0" y1="388" x2="146.0" y2="402" />
 </g>
 <text class="text-2" x="34" y="426" font-size="12">急ぎ 0h ・ 予定 8h</text>
-<text class="text-2" x="34" y="446" font-size="12">MTG 1h</text>
+<text class="text-2" x="34" y="446" font-size="12">MTG等 1h</text>
 </g>
-<g><title>11/24(火) 空き 21% / 急ぎ 0h / 予定 5h / MTG 3.5h</title>
+<g><title>11/24(火) 空き 21% / 急ぎ 0h / 予定 5h / MTG等 3.5h</title>
 <rect class="cell" stroke-width="1" x="194.5" y="354.5" width="159" height="109" rx="8" />
 <text class="text-1" x="204" y="376" font-size="13">11/24 (火)</text>
 <text class="text-1" x="344" y="376" text-anchor="end" font-size="13" font-weight="700">空き 21%</text>
@@ -275,9 +275,9 @@
 <line class="gap" stroke-width="2" x1="314.2" y1="388" x2="314.2" y2="402" />
 </g>
 <text class="text-2" x="204" y="426" font-size="12">急ぎ 0h ・ 予定 5h</text>
-<text class="text-2" x="204" y="446" font-size="12">MTG 3.5h</text>
+<text class="text-2" x="204" y="446" font-size="12">MTG等 3.5h</text>
 </g>
-<g><title>11/25(水) 空き 22% / 急ぎ 0h / 予定 3.5h / MTG 5h</title>
+<g><title>11/25(水) 空き 22% / 急ぎ 0h / 予定 3.5h / MTG等 5h</title>
 <rect class="cell" stroke-width="1" x="364.5" y="354.5" width="159" height="109" rx="8" />
 <text class="text-1" x="374" y="376" font-size="13">11/25 (水)</text>
 <text class="text-1" x="514" y="376" text-anchor="end" font-size="13" font-weight="700">空き 22%</text>
@@ -290,9 +290,9 @@
 <line class="gap" stroke-width="2" x1="482.5" y1="388" x2="482.5" y2="402" />
 </g>
 <text class="text-2" x="374" y="426" font-size="12">急ぎ 0h ・ 予定 3.5h</text>
-<text class="text-2" x="374" y="446" font-size="12">MTG 5h</text>
+<text class="text-2" x="374" y="446" font-size="12">MTG等 5h</text>
 </g>
-<g><title>11/26(木) 空き 0% / 急ぎ 0h / 予定 0h / MTG 11h</title>
+<g><title>11/26(木) 空き 0% / 急ぎ 0h / 予定 0h / MTG等 11h</title>
 <rect class="cell" stroke-width="1" x="534.5" y="354.5" width="159" height="109" rx="8" />
 <text class="text-1" x="544" y="376" font-size="13">11/26 (木)</text>
 <text class="text-1" x="684" y="376" text-anchor="end" font-size="13" font-weight="700">空き 0%</text>
@@ -302,9 +302,9 @@
 <rect class="meetings" x="544.0" y="388" width="140.0" height="14" />
 </g>
 <text class="text-2" x="544" y="426" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="544" y="446" font-size="12">MTG 11h</text>
+<text class="text-2" x="544" y="446" font-size="12">MTG等 11h</text>
 </g>
-<g><title>11/27(金) 空き 0% / 急ぎ 0h / 予定 0h / MTG 11h</title>
+<g><title>11/27(金) 空き 0% / 急ぎ 0h / 予定 0h / MTG等 11h</title>
 <rect class="cell" stroke-width="1" x="704.5" y="354.5" width="159" height="109" rx="8" />
 <text class="text-1" x="714" y="376" font-size="13">11/27 (金)</text>
 <text class="text-1" x="854" y="376" text-anchor="end" font-size="13" font-weight="700">空き 0%</text>
@@ -314,9 +314,9 @@
 <rect class="meetings" x="714.0" y="388" width="140.0" height="14" />
 </g>
 <text class="text-2" x="714" y="426" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="714" y="446" font-size="12">MTG 11h</text>
+<text class="text-2" x="714" y="446" font-size="12">MTG等 11h</text>
 </g>
-<g><title>11/28(土) 空き 26% / 急ぎ 0h / 予定 8h / MTG 0h</title>
+<g><title>11/28(土) 空き 26% / 急ぎ 0h / 予定 8h / MTG等 0h</title>
 <rect class="cell" stroke-width="1" x="874.5" y="354.5" width="159" height="109" rx="8" />
 <text class="text-1" x="884" y="376" font-size="13">11/28 (土)</text>
 <text class="text-1" x="1024" y="376" text-anchor="end" font-size="13" font-weight="700">空き 26%</text>
@@ -327,9 +327,9 @@
 <line class="gap" stroke-width="2" x1="987.2" y1="388" x2="987.2" y2="402" />
 </g>
 <text class="text-2" x="884" y="426" font-size="12">急ぎ 0h ・ 予定 8h</text>
-<text class="text-2" x="884" y="446" font-size="12">MTG 0h</text>
+<text class="text-2" x="884" y="446" font-size="12">MTG等 0h</text>
 </g>
-<g><title>11/29(日) 空き 28% / 急ぎ 0h / 予定 8h / MTG 0h</title>
+<g><title>11/29(日) 空き 28% / 急ぎ 0h / 予定 8h / MTG等 0h</title>
 <rect class="cell" stroke-width="1" x="1044.5" y="354.5" width="159" height="109" rx="8" />
 <text class="text-1" x="1054" y="376" font-size="13">11/29 (日)</text>
 <text class="text-1" x="1194" y="376" text-anchor="end" font-size="13" font-weight="700">空き 28%</text>
@@ -340,9 +340,9 @@
 <line class="gap" stroke-width="2" x1="1155.5" y1="388" x2="1155.5" y2="402" />
 </g>
 <text class="text-2" x="1054" y="426" font-size="12">急ぎ 0h ・ 予定 8h</text>
-<text class="text-2" x="1054" y="446" font-size="12">MTG 0h</text>
+<text class="text-2" x="1054" y="446" font-size="12">MTG等 0h</text>
 </g>
-<g><title>11/30(月) 空き 29% / 急ぎ 0h / 予定 7h / MTG 1h</title>
+<g><title>11/30(月) 空き 29% / 急ぎ 0h / 予定 7h / MTG等 1h</title>
 <rect class="cell" stroke-width="1" x="24.5" y="474.5" width="159" height="109" rx="8" />
 <text class="text-1" x="34" y="496" font-size="13">11/30 (月)</text>
 <text class="text-1" x="174" y="496" text-anchor="end" font-size="13" font-weight="700">空き 29%</text>
@@ -355,9 +355,9 @@
 <line class="gap" stroke-width="2" x1="133.8" y1="508" x2="133.8" y2="522" />
 </g>
 <text class="text-2" x="34" y="546" font-size="12">急ぎ 0h ・ 予定 7h</text>
-<text class="text-2" x="34" y="566" font-size="12">MTG 1h</text>
+<text class="text-2" x="34" y="566" font-size="12">MTG等 1h</text>
 </g>
-<g><title>12/1(火) 空き 30% / 急ぎ 0h / 予定 4.5h / MTG 3h</title>
+<g><title>12/1(火) 空き 30% / 急ぎ 0h / 予定 4.5h / MTG等 3h</title>
 <rect class="cell" stroke-width="1" x="194.5" y="474.5" width="159" height="109" rx="8" />
 <text class="text-1" x="204" y="496" font-size="13">12/1 (火)</text>
 <text class="text-1" x="344" y="496" text-anchor="end" font-size="13" font-weight="700">空き 30%</text>
@@ -370,9 +370,9 @@
 <line class="gap" stroke-width="2" x1="302.0" y1="508" x2="302.0" y2="522" />
 </g>
 <text class="text-2" x="204" y="546" font-size="12">急ぎ 0h ・ 予定 4.5h</text>
-<text class="text-2" x="204" y="566" font-size="12">MTG 3h</text>
+<text class="text-2" x="204" y="566" font-size="12">MTG等 3h</text>
 </g>
-<g><title>12/2(水) 空き 31% / 急ぎ 0h / 予定 4.5h / MTG 3h</title>
+<g><title>12/2(水) 空き 31% / 急ぎ 0h / 予定 4.5h / MTG等 3h</title>
 <rect class="cell" stroke-width="1" x="364.5" y="474.5" width="159" height="109" rx="8" />
 <text class="text-1" x="374" y="496" font-size="13">12/2 (水)</text>
 <text class="text-1" x="514" y="496" text-anchor="end" font-size="13" font-weight="700">空き 31%</text>
@@ -385,9 +385,9 @@
 <line class="gap" stroke-width="2" x1="470.2" y1="508" x2="470.2" y2="522" />
 </g>
 <text class="text-2" x="374" y="546" font-size="12">急ぎ 0h ・ 予定 4.5h</text>
-<text class="text-2" x="374" y="566" font-size="12">MTG 3h</text>
+<text class="text-2" x="374" y="566" font-size="12">MTG等 3h</text>
 </g>
-<g><title>12/3(木) 空き 40% / 急ぎ 0h / 予定 6.5h / MTG 0h</title>
+<g><title>12/3(木) 空き 40% / 急ぎ 0h / 予定 6.5h / MTG等 0h</title>
 <rect class="cell" stroke-width="1" x="534.5" y="474.5" width="159" height="109" rx="8" />
 <text class="text-1" x="544" y="496" font-size="13">12/3 (木)</text>
 <text class="text-1" x="684" y="496" text-anchor="end" font-size="13" font-weight="700">空き 40%</text>
@@ -398,9 +398,9 @@
 <line class="gap" stroke-width="2" x1="627.7" y1="508" x2="627.7" y2="522" />
 </g>
 <text class="text-2" x="544" y="546" font-size="12">急ぎ 0h ・ 予定 6.5h</text>
-<text class="text-2" x="544" y="566" font-size="12">MTG 0h</text>
+<text class="text-2" x="544" y="566" font-size="12">MTG等 0h</text>
 </g>
-<g><title>12/4(金) 空き 77% / 急ぎ 0h / 予定 0h / MTG 2.5h</title>
+<g><title>12/4(金) 空き 77% / 急ぎ 0h / 予定 0h / MTG等 2.5h</title>
 <rect class="cell" stroke-width="1" x="704.5" y="474.5" width="159" height="109" rx="8" />
 <text class="text-1" x="714" y="496" font-size="13">12/4 (金)</text>
 <text class="text-1" x="854" y="496" text-anchor="end" font-size="13" font-weight="700">空き 77%</text>
@@ -411,9 +411,9 @@
 <line class="gap" stroke-width="2" x1="745.8" y1="508" x2="745.8" y2="522" />
 </g>
 <text class="text-2" x="714" y="546" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="714" y="566" font-size="12">MTG 2.5h</text>
+<text class="text-2" x="714" y="566" font-size="12">MTG等 2.5h</text>
 </g>
-<g><title>12/5(土) 空き 100% / 急ぎ 0h / 予定 0h / MTG 0h</title>
+<g><title>12/5(土) 空き 100% / 急ぎ 0h / 予定 0h / MTG等 0h</title>
 <rect class="cell" stroke-width="1" x="874.5" y="474.5" width="159" height="109" rx="8" />
 <text class="text-1" x="884" y="496" font-size="13">12/5 (土)</text>
 <text class="text-1" x="1024" y="496" text-anchor="end" font-size="13" font-weight="700">空き 100%</text>
@@ -422,9 +422,9 @@
 <rect class="free" x="884.0" y="508" width="140" height="14" />
 </g>
 <text class="text-2" x="884" y="546" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="884" y="566" font-size="12">MTG 0h</text>
+<text class="text-2" x="884" y="566" font-size="12">MTG等 0h</text>
 </g>
-<g><title>12/6(日) 空き 100% / 急ぎ 0h / 予定 0h / MTG 0h</title>
+<g><title>12/6(日) 空き 100% / 急ぎ 0h / 予定 0h / MTG等 0h</title>
 <rect class="cell" stroke-width="1" x="1044.5" y="474.5" width="159" height="109" rx="8" />
 <text class="text-1" x="1054" y="496" font-size="13">12/6 (日)</text>
 <text class="text-1" x="1194" y="496" text-anchor="end" font-size="13" font-weight="700">空き 100%</text>
@@ -433,9 +433,9 @@
 <rect class="free" x="1054.0" y="508" width="140" height="14" />
 </g>
 <text class="text-2" x="1054" y="546" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="1054" y="566" font-size="12">MTG 0h</text>
+<text class="text-2" x="1054" y="566" font-size="12">MTG等 0h</text>
 </g>
-<g><title>12/7(月) 空き 100% / 急ぎ 0h / 予定 0h / MTG 0h</title>
+<g><title>12/7(月) 空き 100% / 急ぎ 0h / 予定 0h / MTG等 0h</title>
 <rect class="cell" stroke-width="1" x="24.5" y="594.5" width="159" height="109" rx="8" />
 <text class="text-1" x="34" y="616" font-size="13">12/7 (月)</text>
 <text class="text-1" x="174" y="616" text-anchor="end" font-size="13" font-weight="700">空き 100%</text>
@@ -444,9 +444,9 @@
 <rect class="free" x="34.0" y="628" width="140" height="14" />
 </g>
 <text class="text-2" x="34" y="666" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="34" y="686" font-size="12">MTG 0h</text>
+<text class="text-2" x="34" y="686" font-size="12">MTG等 0h</text>
 </g>
-<g><title>12/8(火) 空き 73% / 急ぎ 0h / 予定 0h / MTG 3h</title>
+<g><title>12/8(火) 空き 73% / 急ぎ 0h / 予定 0h / MTG等 3h</title>
 <rect class="cell" stroke-width="1" x="194.5" y="594.5" width="159" height="109" rx="8" />
 <text class="text-1" x="204" y="616" font-size="13">12/8 (火)</text>
 <text class="text-1" x="344" y="616" text-anchor="end" font-size="13" font-weight="700">空き 73%</text>
@@ -457,7 +457,6 @@
 <line class="gap" stroke-width="2" x1="242.2" y1="628" x2="242.2" y2="642" />
 </g>
 <text class="text-2" x="204" y="666" font-size="12">急ぎ 0h ・ 予定 0h</text>
-<text class="text-2" x="204" y="686" font-size="12">MTG 3h</text>
+<text class="text-2" x="204" y="686" font-size="12">MTG等 3h</text>
 </g>
-<text class="text-3" x="24" y="730" font-size="11">各タスクは期日ぎりぎりに着手する前提で配分した見積もり。具体的な予定・内容は含みません。</text>
 </svg>
