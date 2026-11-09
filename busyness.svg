@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 524" width="1180" height="524" role="img" aria-label="忙しさ目安" class="viz">
+<style>
+    .viz { color-scheme: light dark; }
+    .surface { fill: #fcfcfb; }
+    .text-1 { fill: #0b0b0b; }
+    .text-2 { fill: #52514e; }
+    .text-3 { fill: #7a7974; }
+    .tasks { fill: #2a78d6; }
+    .meetings { fill: #eb6834; }
+    .free { fill: #ebeae6; }
+    .weekend { fill: #f3f2ef; }
+    .grid { stroke: #d9d8d3; }
+    .capline { stroke: #52514e; }
+    .gap { stroke: #fcfcfb; }
+    .overflow { fill: #d03b3b; }
+    .border { stroke: #e3e2dd; fill: none; }
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+           "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      .surface { fill: #1a1a19; }
+      .text-1 { fill: #f0efec; }
+      .text-2 { fill: #c3c2b7; }
+      .text-3 { fill: #8f8e87; }
+      .tasks { fill: #3987e5; }
+      .meetings { fill: #d95926; }
+      .free { fill: #2b2b29; }
+      .weekend { fill: #212120; }
+      .grid { stroke: #3a3a37; }
+      .capline { stroke: #c3c2b7; }
+      .gap { stroke: #1a1a19; }
+      .overflow { fill: #e66767; }
+      .border { stroke: #333331; }
+    }
+</style>
+<rect class="surface" x="0" y="0" width="1180" height="524" rx="12" />
+<text class="text-1" x="64" y="38" font-size="20" font-weight="700">忙しさ目安</text>
+<text class="text-2" x="64" y="60" font-size="13">11/9 から 14 日間 ・ 稼働 10:00-19:00（9h/日） ・ 更新 2026-11-09 20:02</text>
+<rect class="tasks" x="919" y="50" width="12" height="12" rx="3" />
+<text class="text-2" x="935" y="60" font-size="12">タスク</text>
+<rect class="meetings" x="994" y="50" width="12" height="12" rx="3" />
+<text class="text-2" x="1010" y="60" font-size="12">ミーティング</text>
+<rect class="free" x="1108" y="50" width="12" height="12" rx="3" />
+<text class="text-2" x="1124" y="60" font-size="12">空き</text>
+<line class="grid" stroke-width="1" x1="64" y1="376.0" x2="1156" y2="376.0" />
+<text class="text-3" x="56" y="380.0" text-anchor="end" font-size="11">0h</text>
+<line class="grid" stroke-width="1" x1="64" y1="276.0" x2="1156" y2="276.0" />
+<text class="text-3" x="56" y="280.0" text-anchor="end" font-size="11">4.5h</text>
+<line class="capline" stroke-width="1" stroke-dasharray="4 4" x1="64" y1="176.0" x2="1156" y2="176.0" />
+<text class="text-3" x="56" y="180.0" text-anchor="end" font-size="11">9h</text>
+<g><title>11/9(月) 空き 0% / タスク 10h / MTG 1h</title>
+<rect class="meetings" x="80.4" y="353.8" width="45.2" height="22.2" />
+<path class="tasks" d="M80.4,353.8 V135.6 Q80.4,131.6 84.4,131.6 H121.6 Q125.6,131.6 125.6,135.6 V353.8 Z" />
+<line class="gap" stroke-width="2" x1="80.4" y1="353.8" x2="125.6" y2="353.8" />
+</g>
+<text class="text-1" x="103.0" y="398" text-anchor="middle" font-size="13" font-weight="700">11/9 (月)</text>
+<text class="text-3" x="103.0" y="82" text-anchor="middle" font-size="11">今日</text>
+<text class="text-1" x="103.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="103.0" y="436" text-anchor="middle" font-size="12">タスク 10h</text>
+<text class="text-2" x="103.0" y="454" text-anchor="middle" font-size="12">MTG 1h</text>
+<text class="overflow" x="103.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<g><title>11/10(火) 空き 0% / タスク 5h / MTG 5.5h</title>
+<rect class="meetings" x="158.4" y="253.8" width="45.2" height="122.2" />
+<path class="tasks" d="M158.4,253.8 V141.1 Q158.4,137.1 162.4,137.1 H199.6 Q203.6,137.1 203.6,141.1 V253.8 Z" />
+<line class="gap" stroke-width="2" x1="158.4" y1="253.8" x2="203.6" y2="253.8" />
+</g>
+<text class="text-2" x="181.0" y="398" text-anchor="middle" font-size="13">11/10 (火)</text>
+<text class="text-1" x="181.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="181.0" y="436" text-anchor="middle" font-size="12">タスク 5h</text>
+<text class="text-2" x="181.0" y="454" text-anchor="middle" font-size="12">MTG 5.5h</text>
+<text class="overflow" x="181.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<g><title>11/11(水) 空き 0% / タスク 6h / MTG 5h</title>
+<rect class="meetings" x="236.4" y="264.9" width="45.2" height="111.1" />
+<path class="tasks" d="M236.4,264.9 V135.6 Q236.4,131.6 240.4,131.6 H277.6 Q281.6,131.6 281.6,135.6 V264.9 Z" />
+<line class="gap" stroke-width="2" x1="236.4" y1="264.9" x2="281.6" y2="264.9" />
+</g>
+<text class="text-2" x="259.0" y="398" text-anchor="middle" font-size="13">11/11 (水)</text>
+<text class="text-1" x="259.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="259.0" y="436" text-anchor="middle" font-size="12">タスク 6h</text>
+<text class="text-2" x="259.0" y="454" text-anchor="middle" font-size="12">MTG 5h</text>
+<text class="overflow" x="259.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<g><title>11/12(木) 空き 0% / タスク 11h / MTG 0h</title>
+<path class="tasks" d="M314.4,376.0 V135.6 Q314.4,131.6 318.4,131.6 H355.6 Q359.6,131.6 359.6,135.6 V376.0 Z" />
+</g>
+<text class="text-2" x="337.0" y="398" text-anchor="middle" font-size="13">11/12 (木)</text>
+<text class="text-1" x="337.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="337.0" y="436" text-anchor="middle" font-size="12">タスク 11h</text>
+<text class="text-2" x="337.0" y="454" text-anchor="middle" font-size="12">MTG 0h</text>
+<text class="overflow" x="337.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<g><title>11/13(金) 空き 0% / タスク 9h / MTG 1.5h</title>
+<rect class="meetings" x="392.4" y="342.7" width="45.2" height="33.3" />
+<path class="tasks" d="M392.4,342.7 V141.1 Q392.4,137.1 396.4,137.1 H433.6 Q437.6,137.1 437.6,141.1 V342.7 Z" />
+<line class="gap" stroke-width="2" x1="392.4" y1="342.7" x2="437.6" y2="342.7" />
+</g>
+<text class="text-2" x="415.0" y="398" text-anchor="middle" font-size="13">11/13 (金)</text>
+<text class="text-1" x="415.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="415.0" y="436" text-anchor="middle" font-size="12">タスク 9h</text>
+<text class="text-2" x="415.0" y="454" text-anchor="middle" font-size="12">MTG 1.5h</text>
+<text class="overflow" x="415.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<rect class="weekend" x="454.0" y="88" width="78" height="288" />
+<g><title>11/14(土) 空き 0% / タスク 10.5h / MTG 0h</title>
+<path class="tasks" d="M470.4,376.0 V146.7 Q470.4,142.7 474.4,142.7 H511.6 Q515.6,142.7 515.6,146.7 V376.0 Z" />
+</g>
+<text class="text-2" x="493.0" y="398" text-anchor="middle" font-size="13">11/14 (土)</text>
+<text class="text-1" x="493.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="493.0" y="436" text-anchor="middle" font-size="12">タスク 10.5h</text>
+<text class="text-2" x="493.0" y="454" text-anchor="middle" font-size="12">MTG 0h</text>
+<text class="overflow" x="493.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<rect class="weekend" x="532.0" y="88" width="78" height="288" />
+<g><title>11/15(日) 空き 0% / タスク 11h / MTG 0h</title>
+<path class="tasks" d="M548.4,376.0 V135.6 Q548.4,131.6 552.4,131.6 H589.6 Q593.6,131.6 593.6,135.6 V376.0 Z" />
+</g>
+<text class="text-2" x="571.0" y="398" text-anchor="middle" font-size="13">11/15 (日)</text>
+<text class="text-1" x="571.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="571.0" y="436" text-anchor="middle" font-size="12">タスク 11h</text>
+<text class="text-2" x="571.0" y="454" text-anchor="middle" font-size="12">MTG 0h</text>
+<text class="overflow" x="571.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<g><title>11/16(月) 空き 0% / タスク 10h / MTG 1h</title>
+<rect class="meetings" x="626.4" y="353.8" width="45.2" height="22.2" />
+<path class="tasks" d="M626.4,353.8 V135.6 Q626.4,131.6 630.4,131.6 H667.6 Q671.6,131.6 671.6,135.6 V353.8 Z" />
+<line class="gap" stroke-width="2" x1="626.4" y1="353.8" x2="671.6" y2="353.8" />
+</g>
+<text class="text-2" x="649.0" y="398" text-anchor="middle" font-size="13">11/16 (月)</text>
+<text class="text-1" x="649.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="649.0" y="436" text-anchor="middle" font-size="12">タスク 10h</text>
+<text class="text-2" x="649.0" y="454" text-anchor="middle" font-size="12">MTG 1h</text>
+<text class="overflow" x="649.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<g><title>11/17(火) 空き 0% / タスク 5.5h / MTG 5h</title>
+<rect class="meetings" x="704.4" y="264.9" width="45.2" height="111.1" />
+<path class="tasks" d="M704.4,264.9 V146.7 Q704.4,142.7 708.4,142.7 H745.6 Q749.6,142.7 749.6,146.7 V264.9 Z" />
+<line class="gap" stroke-width="2" x1="704.4" y1="264.9" x2="749.6" y2="264.9" />
+</g>
+<text class="text-2" x="727.0" y="398" text-anchor="middle" font-size="13">11/17 (火)</text>
+<text class="text-1" x="727.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="727.0" y="436" text-anchor="middle" font-size="12">タスク 5.5h</text>
+<text class="text-2" x="727.0" y="454" text-anchor="middle" font-size="12">MTG 5h</text>
+<text class="overflow" x="727.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<g><title>11/18(水) 空き 0% / タスク 8.5h / MTG 2h</title>
+<rect class="meetings" x="782.4" y="331.6" width="45.2" height="44.4" />
+<path class="tasks" d="M782.4,331.6 V146.7 Q782.4,142.7 786.4,142.7 H823.6 Q827.6,142.7 827.6,146.7 V331.6 Z" />
+<line class="gap" stroke-width="2" x1="782.4" y1="331.6" x2="827.6" y2="331.6" />
+</g>
+<text class="text-2" x="805.0" y="398" text-anchor="middle" font-size="13">11/18 (水)</text>
+<text class="text-1" x="805.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="805.0" y="436" text-anchor="middle" font-size="12">タスク 8.5h</text>
+<text class="text-2" x="805.0" y="454" text-anchor="middle" font-size="12">MTG 2h</text>
+<text class="overflow" x="805.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<g><title>11/19(木) 空き 0% / タスク 10.5h / MTG 0h</title>
+<path class="tasks" d="M860.4,376.0 V146.7 Q860.4,142.7 864.4,142.7 H901.6 Q905.6,142.7 905.6,146.7 V376.0 Z" />
+</g>
+<text class="text-2" x="883.0" y="398" text-anchor="middle" font-size="13">11/19 (木)</text>
+<text class="text-1" x="883.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="883.0" y="436" text-anchor="middle" font-size="12">タスク 10.5h</text>
+<text class="text-2" x="883.0" y="454" text-anchor="middle" font-size="12">MTG 0h</text>
+<text class="overflow" x="883.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<g><title>11/20(金) 空き 0% / タスク 5h / MTG 5.5h</title>
+<rect class="meetings" x="938.4" y="253.8" width="45.2" height="122.2" />
+<path class="tasks" d="M938.4,253.8 V146.7 Q938.4,142.7 942.4,142.7 H979.6 Q983.6,142.7 983.6,146.7 V253.8 Z" />
+<line class="gap" stroke-width="2" x1="938.4" y1="253.8" x2="983.6" y2="253.8" />
+</g>
+<text class="text-2" x="961.0" y="398" text-anchor="middle" font-size="13">11/20 (金)</text>
+<text class="text-1" x="961.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="961.0" y="436" text-anchor="middle" font-size="12">タスク 5h</text>
+<text class="text-2" x="961.0" y="454" text-anchor="middle" font-size="12">MTG 5.5h</text>
+<text class="overflow" x="961.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<rect class="weekend" x="1000.0" y="88" width="78" height="288" />
+<g><title>11/21(土) 空き 0% / タスク 10.5h / MTG 0h</title>
+<path class="tasks" d="M1016.4,376.0 V146.7 Q1016.4,142.7 1020.4,142.7 H1057.6 Q1061.6,142.7 1061.6,146.7 V376.0 Z" />
+</g>
+<text class="text-2" x="1039.0" y="398" text-anchor="middle" font-size="13">11/21 (土)</text>
+<text class="text-1" x="1039.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="1039.0" y="436" text-anchor="middle" font-size="12">タスク 10.5h</text>
+<text class="text-2" x="1039.0" y="454" text-anchor="middle" font-size="12">MTG 0h</text>
+<text class="overflow" x="1039.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<rect class="weekend" x="1078.0" y="88" width="78" height="288" />
+<g><title>11/22(日) 空き 0% / タスク 9.5h / MTG 1h</title>
+<rect class="meetings" x="1094.4" y="353.8" width="45.2" height="22.2" />
+<path class="tasks" d="M1094.4,353.8 V146.7 Q1094.4,142.7 1098.4,142.7 H1135.6 Q1139.6,142.7 1139.6,146.7 V353.8 Z" />
+<line class="gap" stroke-width="2" x1="1094.4" y1="353.8" x2="1139.6" y2="353.8" />
+</g>
+<text class="text-2" x="1117.0" y="398" text-anchor="middle" font-size="13">11/22 (日)</text>
+<text class="text-1" x="1117.0" y="418" text-anchor="middle" font-size="12" font-weight="600">空き 0%</text>
+<text class="text-2" x="1117.0" y="436" text-anchor="middle" font-size="12">タスク 9.5h</text>
+<text class="text-2" x="1117.0" y="454" text-anchor="middle" font-size="12">MTG 1h</text>
+<text class="overflow" x="1117.0" y="472" text-anchor="middle" font-size="11" font-weight="600">⚠ 超過</text>
+<text class="text-3" x="64" y="510" font-size="11">各タスクは期日ぎりぎりに着手する前提で配分した見積もり。具体的な予定・内容は含みません。</text>
+</svg>
