@@ -32,7 +32,7 @@
 </style>
 <rect class="surface" x="0" y="0" width="1214" height="654" rx="12" />
 <text class="text-1" x="24" y="38" font-size="20" font-weight="700">忙しさ目安</text>
-<text class="text-2" x="24" y="62" font-size="13">11/9 〜 12/8（30 日間）・ 稼働 09:00-24:00（休憩 1h を除き 14h/日）・ 更新 2026-11-09 20:23</text>
+<text class="text-2" x="24" y="62" font-size="13">11/9 〜 12/8（30 日間）・ 稼働 09:00-24:00（休憩 1h を除き 14h/日）・ 更新 2026-11-09 20:24</text>
 <rect class="tasks" x="953" y="28" width="12" height="12" rx="3" />
 <text class="text-2" x="969" y="38" font-size="12">タスク</text>
 <rect class="meetings" x="1028" y="28" width="12" height="12" rx="3" />
@@ -47,9 +47,8 @@
 <text class="text-3" x="943.0" y="106" text-anchor="middle" font-size="12">土</text>
 <text class="text-3" x="1111.0" y="106" text-anchor="middle" font-size="12">日</text>
 <g><title>11/9(月) 空き 55% / タスク 5h / MTG 1h</title>
-<rect class="cell-today" stroke-width="1.5" x="24.5" y="114.5" width="157" height="91" rx="8" />
+<rect class="cell-today" stroke-width="2" x="24.5" y="114.5" width="157" height="91" rx="8" />
 <text class="text-1" x="34" y="136" font-size="13" font-weight="700">11/9 (月)</text>
-<text class="text-3" x="106" y="136" font-size="11">今日</text>
 <text class="text-1" x="172" y="136" text-anchor="end" font-size="13" font-weight="700">空き 55%</text>
 <clipPath id="c0"><rect x="34.0" y="148" width="138" height="14" rx="4" /></clipPath>
 <g clip-path="url(#c0)">
