@@ -34,7 +34,7 @@
 </style>
 <rect class="surface" x="0" y="0" width="1228" height="728" rx="12" />
 <text class="text-1" x="24" y="38" font-size="20" font-weight="700">忙しさ目安</text>
-<text class="text-2" x="24" y="62" font-size="13">11/10 〜 12/9（30 日間）・ 想定稼働時間: 10:00-22:00 ・ 更新 2026-11-10 15:43</text>
+<text class="text-2" x="24" y="62" font-size="13">11/10 〜 12/9（30 日間）・ 想定稼働時間: 10:00-22:00 ・ 更新 2026-11-10 17:02</text>
 <rect class="tasks" x="801" y="28" width="12" height="12" rx="3" />
 <text class="text-2" x="817" y="38" font-size="12">急ぎのタスク</text>
 <rect class="flex" x="915" y="28" width="12" height="12" rx="3" />
@@ -409,17 +409,17 @@
 <text class="text-2" x="884" y="546" font-size="12">急ぎ 0h ・ 通常 7.5h</text>
 <text class="text-2" x="884" y="566" font-size="12">MTG等 0h</text>
 </g>
-<g><title>12/6(日) 空き 75% / 急ぎ 0h / 通常 3h / MTG等 0h</title>
+<g><title>12/6(日) 空き 45% / 急ぎ 0h / 通常 6h / MTG等 0h</title>
 <rect class="cell" stroke-width="1" x="1044.5" y="474.5" width="159" height="109" rx="8" />
 <text class="text-1" x="1054" y="496" font-size="13">12/6 (日)</text>
-<text class="text-1" x="1194" y="496" text-anchor="end" font-size="13" font-weight="700">空き 75%</text>
+<text class="text-1" x="1194" y="496" text-anchor="end" font-size="13" font-weight="700">空き 45%</text>
 <clipPath id="c26"><rect x="1054.0" y="508" width="140" height="14" rx="4" /></clipPath>
 <g clip-path="url(#c26)">
 <rect class="free" x="1054.0" y="508" width="140" height="14" />
-<rect class="flex" x="1054.0" y="508" width="35.5" height="14" />
-<line class="gap" stroke-width="2" x1="1089.5" y1="508" x2="1089.5" y2="522" />
+<rect class="flex" x="1054.0" y="508" width="76.8" height="14" />
+<line class="gap" stroke-width="2" x1="1130.8" y1="508" x2="1130.8" y2="522" />
 </g>
-<text class="text-2" x="1054" y="546" font-size="12">急ぎ 0h ・ 通常 3h</text>
+<text class="text-2" x="1054" y="546" font-size="12">急ぎ 0h ・ 通常 6h</text>
 <text class="text-2" x="1054" y="566" font-size="12">MTG等 0h</text>
 </g>
 <g><title>12/7(月) 空き 100% / 急ぎ 0h / 通常 0h / MTG等 0h</title>
