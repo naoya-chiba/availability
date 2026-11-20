@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-20T07:05+09:00",
-  "start": "2026-11-20",
+  "generated_at": "2026-11-21T07:05+09:00",
+  "start": "2026-11-21",
   "horizon_days": 30,
   "work_hours": "10:00-22:00",
   "break_minutes": 60,
   "capacity_minutes": 660,
-  "task_count": 104,
+  "task_count": 105,
   "unweighted_count": 1,
-  "deadline_task_count": 11,
-  "flexible_task_count": 93,
+  "deadline_task_count": 17,
+  "flexible_task_count": 88,
   "calendar_error": null,
   "todoist_error": null,
   "allday_bound_days": [
@@ -27,71 +27,58 @@
   "totals": [
     {
       "label": "1日",
-      "start": "2026-11-20",
-      "end": "2026-11-20",
+      "start": "2026-11-21",
+      "end": "2026-11-21",
       "days": 1,
-      "urgent_minutes": 210,
-      "normal_minutes": 0,
-      "meeting_minutes": 450,
+      "urgent_minutes": 120,
+      "normal_minutes": 540,
+      "meeting_minutes": 0,
       "free_minutes": 0
     },
     {
       "label": "1週",
-      "start": "2026-11-20",
-      "end": "2026-11-26",
+      "start": "2026-11-21",
+      "end": "2026-11-27",
       "days": 7,
-      "urgent_minutes": 1140,
-      "normal_minutes": 1560,
-      "meeting_minutes": 1920,
+      "urgent_minutes": 600,
+      "normal_minutes": 1890,
+      "meeting_minutes": 2130,
       "free_minutes": 0
     },
     {
       "label": "2週",
-      "start": "2026-11-20",
-      "end": "2026-12-03",
+      "start": "2026-11-21",
+      "end": "2026-12-04",
       "days": 14,
-      "urgent_minutes": 1140,
-      "normal_minutes": 4860,
-      "meeting_minutes": 3240,
+      "urgent_minutes": 960,
+      "normal_minutes": 5340,
+      "meeting_minutes": 2940,
       "free_minutes": 0
     },
     {
       "label": "1月",
-      "start": "2026-11-20",
-      "end": "2026-12-19",
+      "start": "2026-11-21",
+      "end": "2026-12-20",
       "days": 30,
-      "urgent_minutes": 1140,
-      "normal_minutes": 10500,
-      "meeting_minutes": 9240,
+      "urgent_minutes": 960,
+      "normal_minutes": 10815,
+      "meeting_minutes": 8910,
       "free_minutes": 0
     }
   ],
   "days": [
-    {
-      "date": "2026-11-20",
-      "weekday": 4,
-      "capacity_minutes": 660,
-      "meeting_minutes": 450,
-      "task_minutes": 210,
-      "urgent_minutes": 210,
-      "normal_minutes": 0,
-      "free_minutes": 0,
-      "free_ratio": 0.0,
-      "overflow_minutes": 0,
-      "carried_in_minutes": 0
-    },
     {
       "date": "2026-11-21",
       "weekday": 5,
       "capacity_minutes": 660,
       "meeting_minutes": 0,
       "task_minutes": 660,
-      "urgent_minutes": 660,
-      "normal_minutes": 0,
+      "urgent_minutes": 120,
+      "normal_minutes": 540,
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1065
+      "carried_in_minutes": 0
     },
     {
       "date": "2026-11-22",
@@ -99,12 +86,12 @@
       "capacity_minutes": 660,
       "meeting_minutes": 0,
       "task_minutes": 660,
-      "urgent_minutes": 270,
-      "normal_minutes": 390,
+      "urgent_minutes": 120,
+      "normal_minutes": 540,
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 885
+      "carried_in_minutes": 120
     },
     {
       "date": "2026-11-23",
@@ -112,12 +99,12 @@
       "capacity_minutes": 660,
       "meeting_minutes": 120,
       "task_minutes": 540,
-      "urgent_minutes": 0,
-      "normal_minutes": 540,
+      "urgent_minutes": 120,
+      "normal_minutes": 420,
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 600
+      "carried_in_minutes": 240
     },
     {
       "date": "2026-11-24",
@@ -125,12 +112,12 @@
       "capacity_minutes": 660,
       "meeting_minutes": 210,
       "task_minutes": 450,
-      "urgent_minutes": 0,
-      "normal_minutes": 450,
+      "urgent_minutes": 120,
+      "normal_minutes": 330,
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 540
+      "carried_in_minutes": 360
     },
     {
       "date": "2026-11-25",
@@ -138,12 +125,12 @@
       "capacity_minutes": 660,
       "meeting_minutes": 480,
       "task_minutes": 180,
-      "urgent_minutes": 0,
-      "normal_minutes": 180,
+      "urgent_minutes": 120,
+      "normal_minutes": 60,
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 660
+      "carried_in_minutes": 480
     },
     {
       "date": "2026-11-26",
@@ -156,7 +143,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 750
+      "carried_in_minutes": 585
     },
     {
       "date": "2026-11-27",
@@ -169,7 +156,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 825
+      "carried_in_minutes": 675
     },
     {
       "date": "2026-11-28",
@@ -177,12 +164,12 @@
       "capacity_minutes": 660,
       "meeting_minutes": 0,
       "task_minutes": 660,
-      "urgent_minutes": 0,
-      "normal_minutes": 660,
+      "urgent_minutes": 120,
+      "normal_minutes": 540,
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 885
+      "carried_in_minutes": 735
     },
     {
       "date": "2026-11-29",
@@ -190,12 +177,12 @@
       "capacity_minutes": 660,
       "meeting_minutes": 0,
       "task_minutes": 660,
-      "urgent_minutes": 0,
-      "normal_minutes": 660,
+      "urgent_minutes": 120,
+      "normal_minutes": 540,
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 945
+      "carried_in_minutes": 780
     },
     {
       "date": "2026-11-30",
@@ -203,12 +190,12 @@
       "capacity_minutes": 660,
       "meeting_minutes": 240,
       "task_minutes": 420,
-      "urgent_minutes": 0,
-      "normal_minutes": 420,
+      "urgent_minutes": 120,
+      "normal_minutes": 300,
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 990
+      "carried_in_minutes": 825
     },
     {
       "date": "2026-12-01",
@@ -221,7 +208,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1020
+      "carried_in_minutes": 855
     },
     {
       "date": "2026-12-02",
@@ -234,7 +221,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1050
+      "carried_in_minutes": 870
     },
     {
       "date": "2026-12-03",
@@ -247,7 +234,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1065
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-04",
@@ -260,7 +247,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-05",
@@ -273,7 +260,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-06",
@@ -286,7 +273,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-07",
@@ -299,7 +286,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-08",
@@ -312,7 +299,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-09",
@@ -325,7 +312,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-10",
@@ -338,7 +325,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-11",
@@ -351,7 +338,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-12",
@@ -364,7 +351,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-13",
@@ -377,7 +364,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-14",
@@ -390,7 +377,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-15",
@@ -403,7 +390,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-16",
@@ -416,7 +403,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-17",
@@ -429,7 +416,7 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-18",
@@ -442,20 +429,33 @@
       "free_minutes": 0,
       "free_ratio": 0.0,
       "overflow_minutes": 0,
-      "carried_in_minutes": 1080
+      "carried_in_minutes": 885
     },
     {
       "date": "2026-12-19",
       "weekday": 5,
       "capacity_minutes": 660,
       "meeting_minutes": 270,
-      "task_minutes": 1470,
+      "task_minutes": 390,
       "urgent_minutes": 0,
-      "normal_minutes": 1470,
+      "normal_minutes": 390,
       "free_minutes": 0,
       "free_ratio": 0.0,
-      "overflow_minutes": 1080,
-      "carried_in_minutes": 1080
+      "overflow_minutes": 0,
+      "carried_in_minutes": 885
+    },
+    {
+      "date": "2026-12-20",
+      "weekday": 6,
+      "capacity_minutes": 660,
+      "meeting_minutes": 120,
+      "task_minutes": 1425,
+      "urgent_minutes": 0,
+      "normal_minutes": 1425,
+      "free_minutes": 0,
+      "free_ratio": 0.0,
+      "overflow_minutes": 885,
+      "carried_in_minutes": 885
     }
   ]
 }
