@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>タスク履歴</title>
+<style>
+  :root {
+    --bg: #fcfcfb; --fg: #0b0b0b; --muted: #52514e; --line: #e3e2dd; --panel: #f3f2ee;
+    --added: #2a78d6; --completed: #1baf7a; --postponed: #eda100;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1a19; --fg: #f0efec; --muted: #c3c2b7; --line: #333331; --panel: #262624;
+      --added: #3987e5; --completed: #199e70; --postponed: #c98500;
+    }
+  }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+                 "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+    line-height: 1.6; padding: 24px 16px 48px;
+  }
+  main { max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; }
+  .meta { color: var(--muted); font-size: 0.85rem; margin: 0 0 16px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0 0 16px; }
+  .group { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .group button {
+    appearance: none; border: 0; background: transparent; color: var(--muted);
+    font: inherit; font-size: 0.9rem; padding: 5px 12px; cursor: pointer;
+  }
+  .group button + button { border-left: 1px solid var(--line); }
+  .group button[aria-pressed="true"] { background: var(--panel); color: var(--fg); font-weight: 600; }
+  .group button:focus-visible, .legend button:focus-visible {
+    outline: 2px solid var(--added); outline-offset: -2px;
+  }
+  .tiles {
+    display: grid; gap: 12px; margin: 0 0 16px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .tile { border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; }
+  .tile .name { font-size: 0.85rem; color: var(--muted); }
+  .tile .value { font-size: 1.6rem; font-weight: 600; line-height: 1.3; font-variant-numeric: tabular-nums; }
+  .tile .sub { font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; }
+  .panel { border: 1px solid var(--line); border-radius: 12px; padding: 12px 12px 6px; position: relative; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 0 0 4px; }
+  .legend button {
+    appearance: none; border: 0; background: transparent; color: var(--fg); font: inherit;
+    font-size: 0.9rem; padding: 2px 8px; border-radius: 6px; cursor: pointer;
+  }
+  .legend button[aria-pressed="false"] { color: var(--muted); text-decoration: line-through; }
+  .legend button[aria-pressed="false"] .sw { opacity: 0.3; }
+  #chart { display: block; width: 100%; height: 380px; touch-action: pan-y; }
+  #chart text { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+  #chart .grid { stroke: var(--line); stroke-width: 1; }
+  #chart .band { fill: var(--fg); opacity: 0.06; }
+  #chart .dir { fill: var(--fg); font-size: 12px; }
+  .tip {
+    position: absolute; pointer-events: none; background: var(--bg); color: var(--fg);
+    border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 0.85rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); white-space: nowrap; display: none; z-index: 2;
+    font-variant-numeric: tabular-nums;
+  }
+  .tip b { display: block; margin-bottom: 2px; }
+  .tip .r { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; }
+  .tip .o { color: var(--muted); }
+  .note { color: var(--muted); font-size: 0.8rem; margin: 8px 0 0; min-height: 1.3em; }
+  details { margin-top: 16px; }
+  summary { cursor: pointer; color: var(--muted); font-size: 0.9rem; }
+  .scroll { overflow-x: auto; max-height: 420px; overflow-y: auto; margin-top: 8px; }
+  table { border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; min-width: 320px; }
+  th, td { padding: 3px 14px 3px 0; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  th { color: var(--muted); font-weight: 400; position: sticky; top: 0; background: var(--bg); }
+  .links { margin-top: 20px; font-size: 0.85rem; color: var(--muted); }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>タスク履歴</h1>
+  <p class="meta" id="meta"></p>
+  <div class="controls">
+    <div class="group" role="group" aria-label="まとめる単位" data-key="g">
+      <button data-v="day">日</button><button data-v="week">週</button><button data-v="month">月</button><button data-v="year">年</button>
+    </div>
+    <div class="group" role="group" aria-label="数え方" data-key="u">
+      <button data-v="count">件数</button><button data-v="hours">時間</button>
+    </div>
+    <div class="group" role="group" aria-label="期間" data-key="r">
+      <button data-v="1m">1ヶ月</button><button data-v="3m">3ヶ月</button><button data-v="6m">6ヶ月</button><button data-v="1y">1年</button><button data-v="all">全期間</button>
+    </div>
+    <div class="group" role="group" aria-label="表示" data-key="v">
+      <button data-v="bar">棒</button><button data-v="line">折れ線</button><button data-v="cum">累積</button>
+    </div>
+  </div>
+  <div class="tiles" id="tiles"></div>
+  <div class="panel" id="panel">
+    <div class="legend" id="legend"></div>
+    <svg id="chart" role="img" aria-label="タスクの追加・完了・先延ばしの推移"></svg>
+    <div class="tip" id="tip"></div>
+  </div>
+  <p class="note" id="note"></p>
+  <details>
+    <summary>表で見る</summary>
+    <div class="scroll"><table id="table"></table></div>
+  </details>
+  <p class="links">データ: <a href="history.json">history.json</a></p>
+</main>
+<script>
+(function () {
+  "use strict";
+  var DATA = {"generated_at":"2026-11-26T17:03+09:00","default_weight_minutes":60,"columns":["date","added_count","added_minutes","completed_count","completed_minutes","postponed_count","postponed_minutes"],"days":[["2025-09-24",34,2040,3,180,1,60],["2025-09-25",18,1080,9,540,9,540],["2025-09-26",12,840,11,660,6,360],["2025-09-27",0,0,2,120,12,720],["2025-09-28",4,240,1,60,8,480],["2025-09-29",19,1140,21,1260,8,480],["2025-09-30",14,915,13,780,12,720],["2025-10-01",10,600,11,660,11,660],["2025-10-02",10,555,4,240,2,120],["2025-10-03",8,480,5,300,1,60],["2025-10-04",1,60,0,0,0,0],["2025-10-05",11,660,4,240,8,480],["2025-10-06",14,840,10,600,38,2355],["2025-10-07",16,1035,15,900,30,1875],["2025-10-08",18,1200,14,840,21,1500],["2025-10-09",18,1080,19,1140,29,1980],["2025-10-10",10,600,9,540,28,1920],["2025-10-11",3,180,2,120,35,2250],["2025-10-12",0,0,2,120,23,1455],["2025-10-13",10,600,10,600,40,2670],["2025-10-14",10,675,10,600,36,2595],["2025-10-15",22,1095,23,1380,31,2175],["2025-10-16",25,2400,23,1335,33,3195],["2025-10-17",6,480,4,195,31,3075],["2025-10-18",2,120,3,180,35,3150],["2025-10-19",2,120,2,75,37,3270],["2025-10-20",6,315,10,510,1,60],["2025-10-21",19,1260,17,930,51,4470],["2025-10-22",9,540,8,435,0,0],["2025-10-23",4,240,6,270,37,2370],["2025-10-24",19,1260,9,495,0,0],["2025-10-25",4,360,1,60,34,2310],["2025-10-26",7,375,23,1335,43,2970],["2025-10-27",15,900,13,645,33,2370],["2025-10-28",11,660,9,450,62,5280],["2025-10-29",12,720,12,540,0,0],["2025-10-30",6,360,6,315,51,4395],["2025-10-31",4,240,5,210,54,4575],["2025-11-01",2,240,3,180,62,5010],["2025-11-02",1,60,7,285,54,4650],["2025-11-03",5,300,10,555,42,3855],["2025-11-04",7,420,12,630,42,3735],["2025-11-05",3,180,9,450,49,4275],["2025-11-06",4,195,7,375,47,4155],["2025-11-07",2,120,5,210,44,3975],["2025-11-08",8,480,1,60,46,4050],["2025-11-09",5,300,4,195,52,4410],["2025-11-10",10,840,8,435,56,4650],["2025-11-11",3,180,10,555,40,4050],["2025-11-12",1,60,6,315,54,4800],["2025-11-13",0,0,4,150,52,4680],["2025-11-14",5,300,9,450,50,4650],["2025-11-15",0,0,11,435,52,4770],["2025-11-16",0,0,1,60,48,4530],["2025-11-17",8,480,10,510,48,4485],["2025-11-18",21,1260,11,570,50,4605],["2025-11-19",3,180,4,195,55,4995],["2025-11-20",6,360,5,300,50,4695],["2025-11-21",6,360,5,300,49,4635],["2025-11-22",1,60,4,240,62,5280],["2025-11-23",0,0,1,60,62,5280],["2025-11-24",2,120,5,255,58,5085],["2025-11-25",10,600,8,390,56,4965],["2025-11-26",5,300,7,330,69,5655],["2025-11-27",3,180,5,255,68,5640],["2025-11-28",1,60,2,120,68,5685],["2025-11-30",0,0,0,0,70,5715],["2025-12-01",1,60,7,330,70,5715],["2025-12-02",0,0,3,135,65,5460],["2025-12-03",2,120,1,60,65,5460],["2025-12-04",1,60,2,75,67,5535],["2025-12-05",5,300,3,180,67,5580],["2025-12-06",0,0,5,300,70,5760],["2025-12-07",0,0,1,15,65,5460],["2025-12-08",4,240,4,240,65,5460],["2025-12-09",2,120,4,240,67,5535],["2025-12-10",3,180,5,210,67,5490],["2025-12-11",3,180,6,315,66,5475],["2025-12-12",2,120,2,120,64,5400],["2025-12-15",2,240,2,120,66,5475],["2025-12-16",1,60,2,75,71,5805],["2025-12-17",3,180,0,0,72,5865],["2025-12-18",1,60,8,300,76,6060],["2025-12-19",1,60,0,0,69,5820],["2025-12-22",2,120,11,615,69,5775],["2025-12-23",0,0,6,315,66,5595],["2025-12-24",3,135,2,120,62,5355],["2025-12-25",1,60,2,75,64,5430],["2025-12-26",3,255,2,75,64,5475],["2025-12-29",0,0,3,90,68,5745],["2026-01-02",0,0,1,60,70,5820],["2026-01-05",1,60,9,315,71,5790],["2026-01-06",1,60,1,60,62,5475],["2026-01-08",0,0,1,60,66,5625],["2026-01-09",0,0,3,90,67,5685],["2026-01-10",1,60,0,0,62,5475],["2026-01-11",3,180,0,0,63,5535],["2026-01-12",0,0,1,60,64,5550],["2026-01-13",3,180,5,210,66,5625],["2026-01-14",1,60,2,75,67,5730],["2026-01-16",0,0,4,240,69,5850],["2026-01-18",0,0,6,225,66,5670],["2026-01-19",1,60,4,195,63,5535],["2026-01-20",1,60,5,300,60,5400],["2026-01-21",0,0,3,90,59,5295],["2026-01-22",2,120,2,120,58,5280],["2026-01-23",0,0,0,0,59,5340],["2026-01-26",0,0,2,120,62,5430],["2026-02-02",0,0,6,135,66,5445],["2026-02-03",0,0,5,210,61,5370],["2026-02-04",2,120,2,75,58,5235],["2026-02-05",2,120,3,135,60,5355],["2026-02-06",2,120,0,0,59,5340],["2026-02-07",0,0,1,60,61,5415],["2026-02-09",0,0,1,60,62,5430],["2026-02-10",0,0,7,330,64,5550],["2026-02-11",0,0,3,45,61,5415],["2026-02-12",2,120,4,105,63,5400],["2026-02-13",0,0,1,60,58,5235],["2026-02-16",4,240,6,180,59,5250],["2026-02-17",0,0,3,135,59,5295],["2026-02-19",0,0,4,150,62,5385],["2026-02-24",0,0,5,255,60,5310],["2026-02-25",0,0,3,135,57,5130],["2026-02-26",0,0,5,255,52,4875],["2026-02-27",1,180,1,60,52,4875],["2026-02-28",1,60,2,120,53,5055],["2026-03-02",1,60,2,75,54,5025],["2026-03-03",3,180,3,90,53,5055],["2026-03-04",0,0,1,60,57,5250],["2026-03-05",2,120,1,60,0,0],["2026-03-06",2,120,1,60,61,5445],["2026-03-07",1,60,0,0,0,0],["2026-03-08",2,120,0,0,62,5505],["2026-03-09",2,120,0,0,0,0],["2026-03-10",0,0,5,255,68,5820],["2026-03-11",1,60,1,60,63,5565],["2026-03-13",2,120,1,60,65,5685],["2026-03-15",1,60,0,0,0,0],["2026-03-16",2,120,8,390,63,5610],["2026-03-17",6,360,2,120,63,5520],["2026-03-18",1,60,6,180,65,5595],["2026-03-19",0,0,3,135,63,5655],["2026-03-20",1,60,2,120,63,5655],["2026-03-22",0,0,0,0,63,5655],["2026-03-23",1,60,2,75,64,5670],["2026-03-24",2,120,3,90,68,5820],["2026-03-25",0,0,2,75,69,5925],["2026-03-26",2,120,4,60,67,5805],["2026-03-27",1,180,1,60,71,6090],["2026-03-30",0,0,5,255,73,6240],["2026-03-31",1,60,6,180,72,6135],["2026-04-02",3,180,0,0,0,0],["2026-04-03",1,60,0,0,0,0],["2026-04-04",0,0,5,210,76,6510],["2026-04-05",0,0,0,0,73,6330],["2026-04-06",0,0,1,60,74,6345],["2026-04-07",0,0,1,15,77,6435],["2026-04-08",0,0,0,0,78,6495],["2026-04-09",0,0,4,195,78,6495],["2026-04-10",1,60,0,0,0,0],["2026-04-13",0,0,2,75,76,6375],["2026-04-16",3,1035,0,0,0,0],["2026-04-17",1,60,0,0,0,0],["2026-04-19",0,0,5,300,78,6495],["2026-04-20",0,0,5,165,74,6210],["2026-04-21",0,0,1,60,70,6105],["2026-04-22",0,0,1,60,71,6120],["2026-04-23",0,0,6,135,72,6135],["2026-04-28",0,0,3,135,72,6225],["2026-04-29",1,60,1,60,71,6120],["2026-04-30",0,0,5,165,73,6195],["2026-05-11",1,60,0,0,0,0],["2026-06-05",1,60,0,0,0,0],["2026-11-02",1,15,33,1935,11,255],["2026-11-03",44,5595,24,2745,22,3000],["2026-11-04",35,4455,10,495,29,4065],["2026-11-05",13,1710,10,495,30,3795],["2026-11-06",25,1485,21,1020,24,3645],["2026-11-07",0,0,0,0,3,1140],["2026-11-08",12,810,16,2715,25,3045],["2026-11-09",24,1260,29,1680,49,7050],["2026-11-10",33,2205,18,1035,7,1080],["2026-11-11",14,630,19,885,29,3540],["2026-11-12",10,1440,2,75,20,3090],["2026-11-13",4,195,2,75,21,2025],["2026-11-14",2,75,1,60,0,0],["2026-11-15",19,1890,3,45,31,5865],["2026-11-16",16,1440,20,1530,13,1740],["2026-11-17",19,765,45,2370,84,11235],["2026-11-18",19,1425,16,570,46,8445],["2026-11-19",9,675,11,810,0,0],["2026-11-20",19,1125,24,2100,66,7875],["2026-11-21",3,90,2,45,0,0],["2026-11-22",5,165,8,435,41,2910],["2026-11-24",26,1365,35,1185,71,10980],["2026-11-25",18,975,21,570,37,5370],["2026-11-26",14,1365,13,585,0,0]]};
+  var SERIES = [
+    { key: "added", name: "追加", col: 1 },
+    { key: "completed", name: "完了", col: 3 },
+    { key: "postponed", name: "先延ばし", col: 5 }
+  ];
+  var DEFAULT_RANGE = { day: "1m", week: "6m", month: "1y", year: "all" };
+  var MONTHS = { "1m": 1, "3m": 3, "6m": 6, "1y": 12 };
+  var NS = "http://www.w3.org/2000/svg";
+  var DAY = 86400000;
+
+  var state = { g: "week", u: "count", r: "6m", v: "bar", hidden: {} };
+
+  // ---- 日付（UTC の暦日として扱う） ----
+  function parse(s) { var p = s.split("-"); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
+  function iso(t) { return new Date(t).toISOString().slice(0, 10); }
+  function bucketStart(t, g) {
+    var d = new Date(t);
+    if (g === "week") return t - ((d.getUTCDay() + 6) % 7) * DAY;  // 月曜始まり
+    if (g === "month") return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1);
+    if (g === "year") return Date.UTC(d.getUTCFullYear(), 0, 1);
+    return t;
+  }
+  function nextBucket(t, g) {
+    var d = new Date(t);
+    if (g === "week") return t + 7 * DAY;
+    if (g === "month") return Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 1);
+    if (g === "year") return Date.UTC(d.getUTCFullYear() + 1, 0, 1);
+    return t + DAY;
+  }
+  function label(t, g, long) {
+    var d = new Date(t), y = d.getUTCFullYear(), m = d.getUTCMonth() + 1, day = d.getUTCDate();
+    if (g === "year") return y + "年";
+    if (g === "month") return y + "/" + m;
+    if (g === "week") {
+      if (!long) return m + "/" + day;
+      var e = new Date(t + 6 * DAY);
+      return y + "/" + m + "/" + day + "〜" + (e.getUTCMonth() + 1) + "/" + e.getUTCDate();
+    }
+    return long ? y + "/" + m + "/" + day + "（" + "日月火水木金土".charAt(d.getUTCDay()) + "）" : m + "/" + day;
+  }
+
+  // ---- 値 ----
+  function fmt(v, unit) {
+    if (unit === "hours") return (Math.round(v * 10) / 10).toFixed(1) + "h";
+    return Math.round(v) + "件";
+  }
+  function axisFmt(v, unit) {
+    var s = Math.abs(v - Math.round(v)) < 1e-9 ? String(Math.round(v)) : v.toFixed(1);
+    return unit === "hours" ? s + "h" : s;
+  }
+  function value(row, s, unit) { return unit === "hours" ? row[s.col + 1] / 60 : row[s.col]; }
+
+  var rows = DATA.days.map(function (r) { var c = r.slice(); c.t = parse(r[0]); return c; });
+  var lastDay = parse((DATA.generated_at || "").slice(0, 10) || (rows.length ? rows[rows.length - 1][0] : "1970-01-01"));
+  if (rows.length && rows[rows.length - 1].t > lastDay) lastDay = rows[rows.length - 1].t;
+  var firstDay = rows.length ? rows[0].t : lastDay;
+
+  function buckets() {
+    var g = state.g, start = firstDay;
+    if (state.r !== "all") {
+      var d = new Date(lastDay);
+      var from = Date.UTC(d.getUTCFullYear(), d.getUTCMonth() - MONTHS[state.r], d.getUTCDate()) + DAY;
+      if (from > start) start = from;
+    }
+    start = bucketStart(start, g);
+    var list = [], index = {};
+    for (var t = start; t <= lastDay; t = nextBucket(t, g)) {
+      var b = { t: t, count: {}, hours: {} };
+      SERIES.forEach(function (s) { b.count[s.key] = 0; b.hours[s.key] = 0; });
+      index[t] = b; list.push(b);
+    }
+    rows.forEach(function (row) {
+      var b = index[bucketStart(row.t, g)];
+      if (!b) return;
+      SERIES.forEach(function (s) {
+        b.count[s.key] += value(row, s, "count");
+        b.hours[s.key] += value(row, s, "hours");
+      });
+    });
+    return list;
+  }
+
+  // ---- 描画 ----
+  function el(name, attrs, parent) {
+    var node = document.createElementNS(NS, name);
+    for (var k in attrs) node.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(node);
+    return node;
+  }
+  function niceMax(v) {
+    if (v <= 0) return { max: 1, step: 1 };
+    var raw = v / 4, mag = Math.pow(10, Math.floor(Math.log(raw) / Math.LN10)), n = raw / mag;
+    var step = (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * mag;
+    if (state.u === "count" && step < 1) step = 1;
+    return { max: Math.ceil(v / step - 1e-9) * step, step: step };
+  }
+  function color(key) { return "var(--" + key + ")"; }
+
+  var svg = document.getElementById("chart");
+  var tip = document.getElementById("tip");
+  var panel = document.getElementById("panel");
+  var layout = null;
+
+  function draw() {
+    var list = buckets(), unit = state.u;
+    var shown = SERIES.filter(function (s) { return !state.hidden[s.key]; });
+    var W = Math.max(320, svg.clientWidth || 800), H = 380;
+    var m = { l: 46, r: 14, t: 12, b: 28 };
+    var pw = W - m.l - m.r, ph = H - m.t - m.b;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+
+    // 系列ごとの値（累積なら積み上げていく）
+    var vals = {};
+    shown.forEach(function (s) {
+      var run = 0;
+      vals[s.key] = list.map(function (b) {
+        if (state.v === "cum") { run += b[unit][s.key]; return run; }
+        return b[unit][s.key];
+      });
+    });
+    var top = 0;
+    shown.forEach(function (s) { vals[s.key].forEach(function (v) { if (v > top) top = v; }); });
+    var scale = niceMax(top);
+    function y(v) { return m.t + ph - (v / scale.max) * ph; }
+    var slot = list.length ? pw / list.length : pw;
+    function cx(i) { return m.l + slot * (i + 0.5); }
+
+    for (var v = 0; v <= scale.max + 1e-9; v += scale.step) {
+      el("line", { class: "grid", x1: m.l, x2: W - m.r, y1: y(v), y2: y(v) }, svg);
+      el("text", { x: m.l - 6, y: y(v) + 4, "text-anchor": "end" }, svg).textContent = axisFmt(v, unit);
+    }
+    var every = Math.max(1, Math.ceil(list.length / Math.max(1, Math.floor(pw / 56))));
+    list.forEach(function (b, i) {
+      if ((list.length - 1 - i) % every) return;  // 最新の区間には必ずラベルを付ける
+      el("text", { x: cx(i), y: H - 8, "text-anchor": "middle" }, svg).textContent = label(b.t, state.g, false);
+    });
+    var band = el("rect", { class: "band", x: 0, y: m.t, width: slot, height: ph, visibility: "hidden" }, svg);
+
+    var barW = shown.length ? Math.min(28, (slot * 0.8 - 2 * (shown.length - 1)) / shown.length) : 0;
+    var asBars = state.v === "bar" && barW >= 3;
+    if (asBars) {
+      var groupW = barW * shown.length + 2 * (shown.length - 1);
+      shown.forEach(function (s, k) {
+        vals[s.key].forEach(function (val, i) {
+          if (val <= 0) return;
+          var x = cx(i) - groupW / 2 + k * (barW + 2), yy = y(val), h = m.t + ph - yy;
+          var r = Math.min(4, barW / 2, h);
+          el("path", {
+            fill: color(s.key),
+            d: "M" + x + "," + (yy + h) + "V" + (yy + r) + "Q" + x + "," + yy + " " + (x + r) + "," + yy +
+               "H" + (x + barW - r) + "Q" + (x + barW) + "," + yy + " " + (x + barW) + "," + (yy + r) + "V" + (yy + h) + "Z"
+          }, svg);
+        });
+      });
+    } else {
+      shown.forEach(function (s) {
+        var pts = vals[s.key].map(function (val, i) { return cx(i) + "," + y(val); });
+        if (pts.length > 1) {
+          el("polyline", { points: pts.join(" "), fill: "none", stroke: color(s.key), "stroke-width": 2,
+                           "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+        }
+        if (list.length <= 40) {
+          vals[s.key].forEach(function (val, i) {
+            el("circle", { cx: cx(i), cy: y(val), r: 4, fill: color(s.key), stroke: "var(--bg)", "stroke-width": 2 }, svg);
+          });
+        }
+      });
+      // 線の右端に系列名を直接書く（重なるときは凡例に任せる）
+      var ends = shown.map(function (s) {
+        var a = vals[s.key]; return { s: s, y: a.length ? y(a[a.length - 1]) : 0 };
+      }).sort(function (a, b) { return a.y - b.y; });
+      var clear = ends.every(function (e, i) { return i === 0 || e.y - ends[i - 1].y >= 14; });
+      if (clear && list.length > 1 && slot / 2 + m.r >= 14) {
+        ends.forEach(function (e) {
+          el("text", { class: "dir", x: W - m.r, y: Math.max(12, e.y - 8), "text-anchor": "end" }, svg).textContent = e.s.name;
+        });
+      }
+    }
+    var dots = shown.map(function (s) {
+      return el("circle", { r: 5, fill: color(s.key), stroke: "var(--bg)", "stroke-width": 2, visibility: "hidden" }, svg);
+    });
+    layout = { list: list, vals: vals, shown: shown, m: m, slot: slot, W: W, y: y, cx: cx, band: band,
+               dots: asBars ? [] : dots };
+
+    drawTiles(list);
+    drawTable(list);
+    var note = "";
+    if (state.v === "bar" && !asBars && shown.length) note = "区間が多いため折れ線で表示しています。";
+    if (unit === "hours") {
+      note += "時間はタスクの重さの合計（重さが分からないものは " +
+              (Math.round(DATA.default_weight_minutes / 6) / 10) + "h として換算）。";
+    }
+    document.getElementById("note").textContent = note;
+    hideTip();
+  }
+
+  function drawTiles(list) {
+    var box = document.getElementById("tiles"), unit = state.u, other = unit === "hours" ? "count" : "hours";
+    var sum = { count: {}, hours: {} };
+    SERIES.forEach(function (s) {
+      sum.count[s.key] = 0; sum.hours[s.key] = 0;
+      list.forEach(function (b) { sum.count[s.key] += b.count[s.key]; sum.hours[s.key] += b.hours[s.key]; });
+    });
+    function signed(v, u) { return (v > 0 ? "+" : v < 0 ? "−" : "±") + fmt(Math.abs(v), u); }
+    var html = SERIES.map(function (s) {
+      return '<div class="tile"><div class="name"><span class="sw" style="background:' + color(s.key) + '"></span>' +
+        s.name + '</div><div class="value">' + fmt(sum[unit][s.key], unit) + '</div><div class="sub">' +
+        fmt(sum[other][s.key], other) + "</div></div>";
+    }).join("");
+    html += '<div class="tile"><div class="name">追加 − 完了</div><div class="value">' +
+      signed(sum[unit].added - sum[unit].completed, unit) + '</div><div class="sub">' +
+      signed(sum[other].added - sum[other].completed, other) + "</div></div>";
+    box.innerHTML = html;
+    var from = list.length ? label(list[0].t, "day", true).replace(/（.）/, "") : "";
+    document.getElementById("meta").textContent =
+      (list.length ? from + " 〜 " + label(lastDay, "day", true).replace(/（.）/, "") + "　" : "") +
+      "更新 " + (DATA.generated_at || "").replace("T", " ").slice(0, 16);
+  }
+
+  function drawTable(list) {
+    var unit = state.u, head = "<tr><th>期間</th>" + SERIES.map(function (s) { return "<th>" + s.name + "</th>"; }).join("") + "</tr>";
+    var body = list.slice().reverse().map(function (b) {
+      return "<tr><td>" + label(b.t, state.g, true) + "</td>" + SERIES.map(function (s) {
+        return "<td>" + fmt(b[unit][s.key], unit) + "</td>";
+      }).join("") + "</tr>";
+    }).join("");
+    document.getElementById("table").innerHTML = head + body;
+  }
+
+  // ---- ホバー ----
+  function hideTip() {
+    tip.style.display = "none";
+    if (layout) {
+      layout.band.setAttribute("visibility", "hidden");
+      layout.dots.forEach(function (d) { d.setAttribute("visibility", "hidden"); });
+    }
+  }
+  function onMove(ev) {
+    if (!layout || !layout.list.length) return;
+    var box = svg.getBoundingClientRect();
+    var x = (ev.clientX - box.left) * (layout.W / box.width);
+    var i = Math.floor((x - layout.m.l) / layout.slot);
+    if (i < 0 || i >= layout.list.length) { hideTip(); return; }
+    var b = layout.list[i], unit = state.u, other = unit === "hours" ? "count" : "hours";
+    layout.band.setAttribute("x", layout.m.l + layout.slot * i);
+    layout.band.setAttribute("visibility", "visible");
+    layout.dots.forEach(function (d, k) {
+      d.setAttribute("cx", layout.cx(i));
+      d.setAttribute("cy", layout.y(layout.vals[layout.shown[k].key][i]));
+      d.setAttribute("visibility", "visible");
+    });
+    var cum = state.v === "cum";
+    tip.innerHTML = "<b>" + label(b.t, state.g, true) + (cum ? " まで" : "") + "</b>" + layout.shown.map(function (s) {
+      var main = cum ? layout.vals[s.key][i] : b[unit][s.key];
+      return '<div class="r"><span><span class="sw" style="background:' + color(s.key) + '"></span>' + s.name +
+        "</span><span>" + fmt(main, unit) + "</span>" + (cum ? "" : '<span class="o">' + fmt(b[other][s.key], other) + "</span>") + "</div>";
+    }).join("");
+    tip.style.display = "block";
+    var pbox = panel.getBoundingClientRect();
+    var left = ev.clientX - pbox.left + 14;
+    if (left + tip.offsetWidth > pbox.width - 4) left = ev.clientX - pbox.left - tip.offsetWidth - 14;
+    tip.style.left = Math.max(4, left) + "px";
+    tip.style.top = Math.max(4, ev.clientY - pbox.top - tip.offsetHeight - 10) + "px";
+  }
+  svg.addEventListener("pointermove", onMove);
+  svg.addEventListener("pointerdown", onMove);
+  svg.addEventListener("pointerleave", hideTip);
+
+  // ---- 操作 ----
+  function syncControls() {
+    Array.prototype.forEach.call(document.querySelectorAll(".group"), function (group) {
+      var key = group.getAttribute("data-key");
+      Array.prototype.forEach.call(group.querySelectorAll("button"), function (btn) {
+        btn.setAttribute("aria-pressed", String(btn.getAttribute("data-v") === state[key]));
+      });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("#legend button"), function (btn) {
+      btn.setAttribute("aria-pressed", String(!state.hidden[btn.getAttribute("data-s")]));
+    });
+    var hash = "g=" + state.g + "&u=" + state.u + "&r=" + state.r + "&v=" + state.v;
+    try { history.replaceState(null, "", "#" + hash); } catch (e) { /* file:// などでは無視 */ }
+  }
+  function readHash() {
+    var allowed = { g: ["day", "week", "month", "year"], u: ["count", "hours"],
+                    r: ["1m", "3m", "6m", "1y", "all"], v: ["bar", "line", "cum"] };
+    location.hash.replace(/^#/, "").split("&").forEach(function (pair) {
+      var kv = pair.split("=");
+      if (allowed[kv[0]] && allowed[kv[0]].indexOf(kv[1]) >= 0) state[kv[0]] = kv[1];
+    });
+  }
+  document.querySelector(".controls").addEventListener("click", function (ev) {
+    var btn = ev.target.closest("button");
+    if (!btn) return;
+    var key = btn.parentNode.getAttribute("data-key"), v = btn.getAttribute("data-v");
+    state[key] = v;
+    if (key === "g") state.r = DEFAULT_RANGE[v];  // まとめる単位に合った期間へ
+    syncControls(); draw();
+  });
+  var legend = document.getElementById("legend");
+  legend.innerHTML = SERIES.map(function (s) {
+    return '<button type="button" data-s="' + s.key + '"><span class="sw" style="background:' + color(s.key) +
+      '"></span>' + s.name + "</button>";
+  }).join("");
+  legend.addEventListener("click", function (ev) {
+    var btn = ev.target.closest("button");
+    if (!btn) return;
+    var key = btn.getAttribute("data-s");
+    state.hidden[key] = !state.hidden[key];
+    syncControls(); draw();
+  });
+  var timer = null;
+  window.addEventListener("resize", function () { clearTimeout(timer); timer = setTimeout(draw, 120); });
+
+  readHash();
+  syncControls();
+  draw();
+})();
+</script>
+</body>
+</html>
